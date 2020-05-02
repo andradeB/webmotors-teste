@@ -1,0 +1,51 @@
+@import "./scss/variables";
+@import "./scss/input";
+@import "./scss/button";
+@import "./scss/screens";
+@import "./scss/layout";
+@import "./scss/variables";
+@import "./scss/header";
+@import "./scss/dropdown";
+@import "./scss/checkboxes";
+
+body {
+  font-family: $font-family;
+  background-color: #f4f4f4;
+  color: rgba($default-color, 0.7);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bcbcbc;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+a#advenced-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $primary;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+
+  svg {
+    font-size: 20px;
+  }
+}

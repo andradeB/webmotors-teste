@@ -1,0 +1,80 @@
+.dropdown {
+  $padding: 5px;
+
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+
+  .selected-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    padding: 0 $padding;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #c8c8c8;
+    border-radius: $default-border-radius;
+    height: 35px;
+    line-height: 40px;
+
+    svg {
+      font-size: 20px;
+    }
+
+    .value {
+      font-weight: bold;
+      padding-left: 7px;
+      color: $default-color;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  ul {
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    background: white;
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid rgba($default-color, 0.3);
+    width: 100%;
+
+    border-bottom-left-radius: $default-border-radius;
+    border-bottom-right-radius: $default-border-radius;
+
+    li {
+      font-size: 15px;
+      padding: 3px $padding;
+
+      &:hover {
+        color: white;
+        background: $primary;
+      }
+    }
+  }
+
+  &.opened {
+    .selected-area {
+      border: 1px solid $default-color;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    ul {
+      border-top: none;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}

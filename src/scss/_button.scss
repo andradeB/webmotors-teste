@@ -1,0 +1,46 @@
+button {
+  $height: 40px;
+
+  background-color: $primary;
+  border-radius: $default-border-radius;
+  border: 0;
+  color: white;
+  height: $height;
+  padding: 0 20px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: lighten($primary, 5%);
+    cursor: pointer;
+  }
+
+  &.submit {
+    text-transform: uppercase;
+    font-weight: 800;
+    width: 100%;
+  }
+
+  &.sale {
+    background: transparent;
+    border: 2px solid $tertiary;
+    color: $tertiary;
+    height: 35px;
+    transition: 0.3s;
+
+    &:hover {
+      background: rgba($tertiary, 0.2);
+    }
+  }
+
+  &.reset {
+    text-align: left;
+    margin-right: 10px;
+    padding: 0;
+    min-width: 100px;
+    background: white;
+    color: rgba($default-color, 0.7);
+  }
+}

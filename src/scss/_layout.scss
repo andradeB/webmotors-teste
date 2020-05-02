@@ -1,0 +1,81 @@
+.box {
+  height: 312px;
+  width: 933px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.pane {
+  background-color: white;
+  padding: 20px 40px;
+  -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  text-overflow: ellipsis;
+}
+
+.grid > div {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: $screen-md-min) {
+  .grid > div:nth-child(7) {
+    justify-content: center;
+  }
+  .grid > div:nth-child(8) {
+    button {
+      width: 50%;
+      text-align: center;
+    }
+  }
+}
+
+@include md {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .grid > div {
+    display: flex;
+    align-items: center;
+  }
+
+  .grid > div:nth-child(1),
+  .grid > div:nth-child(6) {
+    grid-column: 1/3;
+  }
+}
+
+@include lg {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .grid > div {
+    display: flex;
+    align-items: center;
+  }
+
+  .grid > div:nth-child(1),
+  .grid > div:nth-child(7) {
+    grid-column: 1/3;
+  }
+  .grid > div:nth-child(6),
+  .grid > div:nth-child(8) {
+    grid-column: 3/5;
+  }
+}

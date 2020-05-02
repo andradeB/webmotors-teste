@@ -7,7 +7,7 @@ export default function GroupCheckbox({ options = [], selecteds = [] }) {
       <li key={id}>
         <label>
           <input type="checkbox" name={label + id} value={id} />
-          <span class="checkmark">
+          <span className="checkmark">
             <GoCheck />
           </span>
           <div>{label}</div>

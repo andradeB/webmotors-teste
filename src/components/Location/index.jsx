@@ -3,6 +3,7 @@ import useClickOutside from "click-outside-hook";
 import { FiMapPin } from "react-icons/fi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { location } from "../../services";
+import Range from "./range";
 
 const initialLocation = {
   visible: false,
@@ -23,8 +24,10 @@ export default function Dropdown({
   const [val, setValue] = useState(value);
   const [locationOptions, setLocation] = useState([]);
   const [selected, setSelected] = useState([]);
+  const [range, setRange] = useState([50]);
+  const [rangeVisible, setangeVisible] = useState(false);
 
-  const ref = useClickOutside(() => setVisible(false));
+  const ref = useClickOutside(() => close());
 
   function selectItem({ cidade, uf, estado }) {
     setTapping(false);
@@ -40,6 +43,13 @@ export default function Dropdown({
       </li>
     );
   }
+
+  function close() {
+    setangeVisible(false);
+    setVisible(false);
+  }
+
+  const toogleVisibility = () => setangeVisible(!rangeVisible);
 
   function filterCities(city, term) {
     const patter = RegExp(`.*${term}.*`);
@@ -95,21 +105,40 @@ export default function Dropdown({
     );
   }
 
+  function getRangeBox() {
+    return (
+      <ul
+        className="range"
+        style={{
+          display: rangeVisible ? "block" : "none",
+        }}
+      >
+        <li>
+          <Range value={range} onChange={setRange} />
+        </li>
+      </ul>
+    );
+  }
+
   return (
-    <div ref={ref} className={`location ${visible ? "opened" : ""}`}>
+    <div
+      ref={ref}
+      className={`location ${visible || rangeVisible ? "opened" : ""}`}
+    >
       <div className="selected-area">
         <FiMapPin />
         <label>Onde ?</label>
         <input value={val} onChange={tapping} />
       </div>
-      <div className="range-area">
+      <div className="range-area" onClick={() => toogleVisibility()}>
         <div>
           <span>Raio: </span>
-          <span className="value">100km</span>
+          <span className="value">{range}km</span>
         </div>
         <IoMdArrowDropdown />
       </div>
       {getLocationBox()}
+      {getRangeBox()}
     </div>
   );
 }

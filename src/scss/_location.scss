@@ -1,4 +1,12 @@
 .location {
+  .range {
+    padding: 20px 10px;
+
+    li:hover {
+      background: transparent;
+    }
+  }
+
   .selected-area {
     display: flex;
     justify-content: left;

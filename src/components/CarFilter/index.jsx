@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Dropdown from "../Dropdown";
 import GroupCheckbox from "../GroupCheckbox";
+import Location from "../Location";
 import { RiArrowDropRightLine } from "react-icons/ri";
 import { helpers, make, model, version } from "../../services";
 
@@ -61,7 +62,7 @@ export default function () {
       </span>
       <span className="grid">
         <div>
-          <Dropdown options={[]} value={3} prefix="Modelo:" />
+          <Location />
         </div>
         <div>
           <Dropdown

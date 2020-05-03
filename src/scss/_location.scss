@@ -1,0 +1,61 @@
+.location {
+  .selected-area {
+    display: flex;
+    justify-content: left;
+    width: 70%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    svg {
+      color: $primary;
+      margin-right: 10px;
+    }
+
+    input {
+      background: transparent;
+      width: 70%;
+      margin-left: 5px;
+      outline: none;
+      height: 35px;
+      border: none;
+
+      color: $default-color;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+  .range-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    width: 30%;
+    font-size: 14px;
+    border: 1px solid #c8c8c8;
+    border-radius: $default-border-radius;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: none;
+    height: 35px;
+    line-height: 40px;
+
+    svg {
+      font-size: 20px;
+    }
+
+    :nth-child(2) {
+      font-weight: bold;
+      margin-left: 5px;
+    }
+  }
+
+  &.opened {
+    .selected-area {
+      border: 1px solid #c8c8c8;
+    }
+    .range-area {
+      border-bottom-right-radius: 0;
+    }
+  }
+}

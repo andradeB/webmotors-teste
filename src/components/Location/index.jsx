@@ -3,7 +3,7 @@ import useClickOutside from "click-outside-hook";
 import { FiMapPin } from "react-icons/fi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { location } from "../../services";
-import Range from "./range";
+import Range from "../Range";
 
 const initialLocation = {
   visible: false,
@@ -23,7 +23,6 @@ export default function Dropdown({
   const [visible, setVisible] = useState(false);
   const [val, setValue] = useState(value);
   const [locationOptions, setLocation] = useState([]);
-  const [selected, setSelected] = useState([]);
   const [range, setRange] = useState([50]);
   const [rangeVisible, setangeVisible] = useState(false);
 
@@ -31,9 +30,14 @@ export default function Dropdown({
 
   function selectItem({ cidade, uf, estado }) {
     setTapping(false);
-    setSelected({ cidade, uf, estado });
+    onChangeLocation({ cidade, uf, estado });
     setValue(`${cidade}-${uf}`);
     setLocation([]);
+  }
+
+  function selectRange(data) {
+    setRange(data);
+    onCahngeRange(data);
   }
 
   function GetItem({ cidade, uf, estado }, key) {
@@ -114,7 +118,14 @@ export default function Dropdown({
         }}
       >
         <li>
-          <Range value={range} onChange={setRange} />
+          <Range
+            value={range}
+            onChange={selectRange}
+            sufix="km"
+            step={1}
+            min={10}
+            max={200}
+          />
         </li>
       </ul>
     );

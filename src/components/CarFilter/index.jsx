@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Dropdown from "../Dropdown";
 import GroupCheckbox from "../GroupCheckbox";
 import Location from "../Location";
+import MoneyRange from "../MoneyRange";
+import DateRange from "../DateRange";
 import { RiArrowDropRightLine } from "react-icons/ri";
 import { helpers, make, model, version } from "../../services";
 
@@ -15,6 +17,14 @@ const initialData = {
   MakeID: 0,
   ModelID: 0,
   VersionID: 0,
+  price: {
+    start: 0,
+    end: 0,
+  },
+  year: {
+    start: 0,
+    end: 0,
+  },
 };
 
 export default function () {
@@ -27,6 +37,10 @@ export default function () {
   const setMake = (MakeID) => setData({ ...data, MakeID });
   const setModel = (ModelID) => setData({ ...data, ModelID });
   const setVersion = (VersionID) => setData({ ...data, VersionID });
+  const setPrice = (price) => setData({ ...data, price });
+  const setDate = (year) => setData({ ...data, year });
+
+  const clearAll = () => setData(initialData);
 
   useEffect(() => {
     helpers.convert(make).then(setMakeOptions);
@@ -81,10 +95,20 @@ export default function () {
           />
         </div>
         <div>
-          <Dropdown options={[]} value={3} prefix="Modelo:" />
+          <DateRange
+            placeholder="Ano desejado"
+            start={data.year.start}
+            end={data.year.end}
+            onChange={(value) => setDate(value)}
+          />
         </div>
         <div>
-          <Dropdown options={[]} value={3} prefix="Modelo:" />
+          <MoneyRange
+            placeholder="Faixa de preço"
+            start={data.price.start}
+            end={data.price.end}
+            onChange={(value) => setPrice(value)}
+          />
         </div>
         <div>
           <Dropdown

@@ -49,6 +49,17 @@
     height: 35px;
     line-height: 40px;
 
+    label {
+      display: none;
+    }
+
+    @include lg {
+      label {
+        display: block;
+        float: left;
+      }
+    }
+
     svg {
       font-size: 20px;
     }

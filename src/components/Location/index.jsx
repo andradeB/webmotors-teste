@@ -143,7 +143,7 @@ export default function Dropdown({
       </div>
       <div className="range-area" onClick={() => toogleVisibility()}>
         <div>
-          <span>Raio: </span>
+          <label>Raio: </label>
           <span className="value">{range}km</span>
         </div>
         <IoMdArrowDropdown />

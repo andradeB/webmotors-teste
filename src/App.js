@@ -8,15 +8,38 @@ import Card from "./components/ProductCard";
 
 function App() {
   const classTypes = {
-    flex: "product-flex",
+    flex: "product-column",
     grid: "product-grid",
   };
+  const [page, setPage] = useState(1);
+  const [showLoading, setShowLoading] = useState(false);
+  const [seeMore, setSeeMore] = useState(false);
   const [productClass, serProductClass] = useState(classTypes.grid);
   const [carList, setCarList] = useState([]);
   const [visible, setVisible] = useState(true);
 
+  const addItem = (data) => {
+    setCarList((prevent) => {
+      console.log(prevent);
+      return prevent.concat(data);
+    });
+  };
+
+  const loadMore = async (page) => {
+    setShowLoading(true);
+    setPage(page);
+
+    const data = await vehicles.get(page);
+
+    setSeeMore(!!data.length);
+    setTimeout(function () {
+      setCarList(carList.concat(data));
+      setShowLoading(false);
+    }, 2000);
+  };
+
   useEffect(() => {
-    vehicles.get(1).then(setCarList);
+    loadMore(page);
   }, []);
 
   function changeClass(classType) {
@@ -27,7 +50,7 @@ function App() {
     }, 300);
   }
 
-  const getItem = (car) => <Card {...car} />;
+  const getItem = (car) => <Card key={car.ID} {...car} />;
   return (
     <div className="App">
       <section id="filter">
@@ -56,6 +79,20 @@ function App() {
       <main className={`${visible ? "fadeIn" : "fadeOut"} ${productClass}`}>
         <div className="list">{carList.map(getItem)}</div>
       </main>
+      <footer>
+        <div style={{ display: showLoading ? "" : "none" }}>
+          <img src="/loading-busca.gif" alt="" />
+        </div>
+        <div>
+          <button
+            style={{ display: seeMore && !showLoading ? "" : "none" }}
+            className="load-more"
+            onClick={() => loadMore(page + 1)}
+          >
+            Ver mais
+          </button>
+        </div>
+      </footer>
     </div>
   );
 }

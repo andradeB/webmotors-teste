@@ -30,6 +30,11 @@ button {
     height: 35px;
     transition: 0.3s;
 
+    display: none;
+    @include lg {
+      display: block;
+    }
+
     &:hover {
       background: rgba($tertiary, 0.2);
     }
@@ -42,5 +47,13 @@ button {
     min-width: 100px;
     background: white;
     color: rgba($default-color, 0.7);
+  }
+
+  &.load-more {
+    @include default-border;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: $default-color;
+    background: white;
   }
 }

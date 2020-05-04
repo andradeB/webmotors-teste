@@ -1,7 +1,7 @@
 .box {
   display: block;
-  height: 312px;
   width: 933px;
+  margin-bottom: 30px;
 }
 
 #filter {
@@ -40,6 +40,10 @@
 }
 
 @include md {
+  .box {
+    height: 312px;
+  }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -86,17 +90,35 @@ main {
     .list {
       margin-bottom: 100px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: 20px;
+      row-gap: 20px;
     }
   }
 
-  &.product-flex {
+  @include lg {
+    &.product-grid {
+      .list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  &.product-column {
     .list {
       margin-bottom: 100px;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: 20px;
+      row-gap: 20px;
     }
   }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin: 40px;
 }

@@ -3,29 +3,34 @@
   max-width: 933px;
 }
 #grid-options {
-  display: flex;
-  justify-content: flex-end;
-  div {
-    @include default-border;
-    float: right;
+  display: none;
+}
+@include md {
+  #grid-options {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    height: 30px;
-    width: 30px;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
+    justify-content: flex-end;
+    div {
+      @include default-border;
+      float: right;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      height: 30px;
+      width: 30px;
+      margin-left: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
 
-    &:hover {
-      background-color: darken(white, 10%);
-    }
+      &:hover {
+        background-color: darken(white, 10%);
+      }
 
-    &.active {
-      color: $primary;
-      border-color: $primary;
+      &.active {
+        color: $primary;
+        border-color: $primary;
+      }
     }
   }
 }

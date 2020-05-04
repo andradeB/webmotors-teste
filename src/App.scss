@@ -9,6 +9,8 @@
 @import "./scss/checkboxes";
 @import "./scss/range";
 @import "./scss/moneyRange";
+@import "./scss/homePage";
+@import "./scss/cardProduct";
 
 body {
   font-family: $font-family;
@@ -50,4 +52,13 @@ a#advenced-search {
   svg {
     font-size: 20px;
   }
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.fadeIn {
+  opacity: 1;
+  transition: opacity 0.5s 0.5s;
 }

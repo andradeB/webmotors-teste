@@ -1,5 +1,5 @@
 import http from "./http";
-const URL = "Version";
+const URL = "Vehicles";
 
 export default {
   model: {

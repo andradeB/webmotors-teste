@@ -1,9 +1,10 @@
 .box {
+  display: block;
   height: 312px;
   width: 933px;
 }
 
-main {
+#filter {
   display: flex;
   justify-content: center;
 }
@@ -11,9 +12,7 @@ main {
 .pane {
   background-color: white;
   padding: 20px 40px;
-  -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.3);
+  @include shadow;
 }
 
 .grid {
@@ -77,5 +76,27 @@ main {
   .grid > div:nth-child(6),
   .grid > div:nth-child(8) {
     grid-column: 3/5;
+  }
+}
+
+main {
+  max-width: 933px;
+  margin: 0 auto;
+  &.product-grid {
+    .list {
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  }
+
+  &.product-flex {
+    .list {
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
   }
 }

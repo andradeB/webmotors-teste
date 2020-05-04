@@ -5,6 +5,15 @@
     width: 70%;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
+    label {
+      display: none;
+    }
+
+    @include md {
+      label {
+        display: block;
+      }
+    }
 
     svg {
       color: $primary;

@@ -1,0 +1,143 @@
+.product-grid {
+  .product-card {
+    transform: 1s;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    @include shadow;
+    img {
+      width: 100%;
+      height: 186px;
+      object-fit: fill;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+
+      .title,
+      .version {
+        font-weight: bold;
+      }
+
+      .title {
+        text-transform: uppercase;
+        height: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .version {
+        opacity: 0.6;
+        font-size: 14px;
+        height: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 20px;
+      }
+      .price {
+        font-size: 22px;
+        font-weight: bold;
+      }
+    }
+
+    .footer {
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 12px;
+
+      div:nth-child(2) {
+        text-align: right;
+      }
+    }
+
+    .color {
+      border-top: 1px solid rgba($default-color, 0.2);
+      font-size: 12px;
+      padding: 10px 20px;
+
+      span {
+        font-weight: bold;
+        padding-left: 5px;
+      }
+    }
+  }
+}
+
+.product-flex {
+  .product-card {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    @include shadow;
+    img {
+      width: 300px;
+      height: 186px;
+      object-fit: fill;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - 300px);
+      padding: 20px;
+
+      .title,
+      .version {
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      .title {
+        text-transform: uppercase;
+        height: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .version {
+        opacity: 0.6;
+        font-size: 14px;
+        height: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 20px;
+      }
+      .price {
+        font-size: 26px;
+        font-weight: bold;
+      }
+    }
+
+    .footer {
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 16px;
+      border-top: 1px solid rgba($default-color, 0.2);
+      width: 50%;
+
+      div:nth-child(2) {
+        text-align: right;
+      }
+    }
+
+    .color {
+      border-top: 1px solid rgba($default-color, 0.2);
+      font-size: 16px;
+      padding: 10px 20px;
+      width: 50%;
+      text-align: right;
+
+      span {
+        font-weight: bold;
+        padding-left: 5px;
+      }
+    }
+  }
+}
